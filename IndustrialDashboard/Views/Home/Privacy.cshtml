@@ -1,0 +1,62 @@
+﻿@{
+    ViewData["Title"] = "Privacy Policy";
+}
+
+<div class="container mt-4">
+
+    <!-- Back Button -->
+    <div class="d-flex align-items-center mb-4">
+        <button onclick="history.back()" class="btn btn-outline-secondary btn-sm">
+            <i class="bi bi-arrow-left"></i> Back
+        </button>
+        <h3 class="fw-bold mb-0 ms-3">Privacy Policy</h3>
+    </div>
+
+    <div class="card shadow-sm border-0 rounded-3 p-4">
+        <h4 class="fw-bold mb-3">Our Commitment to Privacy</h4>
+        <p class="text-muted">
+            Your privacy is important to us. This Privacy Policy explains how we collect, use,
+            and protect your information when you use our application and services.
+        </p>
+
+        <h5 class="fw-bold mt-4">1. Information We Collect</h5>
+        <ul>
+            <li>Personal details (e.g., name, email, login ID)</li>
+            <li>Device data and usage information</li>
+            <li>System logs and IoT device activity</li>
+        </ul>
+
+        <h5 class="fw-bold mt-4">2. How We Use Your Information</h5>
+        <ul>
+            <li>To provide secure access to our platform</li>
+            <li>To improve user experience and system performance</li>
+            <li>To generate analytics and reports</li>
+        </ul>
+
+        <h5 class="fw-bold mt-4">3. Data Security</h5>
+        <p class="text-muted">
+            We use modern encryption and secure storage practices to protect your data.
+            Access is limited to authorized users only.
+        </p>
+
+        <h5 class="fw-bold mt-4">4. Sharing of Data</h5>
+        <p class="text-muted">
+            We do not sell or share your personal data with third parties, except when required
+            by law or for essential system operations.
+        </p>
+
+        <h5 class="fw-bold mt-4">5. Your Rights</h5>
+        <p class="text-muted">
+            You can request to view, update, or delete your personal information at any time by
+            contacting our support team.
+        </p>
+
+        <h5 class="fw-bold mt-4">6. Updates to This Policy</h5>
+        <p class="text-muted">
+            We may update this Privacy Policy from time to time. Updates will be posted on this page
+            with a revised date.
+        </p>
+
+        <p class="mt-4 text-muted"><strong>Effective Date:</strong> @DateTime.Now.ToString("dd MMM yyyy")</p>
+    </div>
+</div>

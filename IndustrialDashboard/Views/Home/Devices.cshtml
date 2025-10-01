@@ -1,0 +1,75 @@
+﻿@{
+    ViewData["Title"] = "Devices";
+
+    // Example device list with ID + Name
+    var devices = new List<(string Id, string Name)>()
+    {
+        ("DVC-001", "Temperature Sensor"),
+        ("DVC-002", "Humidity Sensor"),
+        ("DVC-003", "Pressure Sensor"),
+        ("DVC-004", "Light Sensor"),
+        ("DVC-005", "Motion Detector"),
+        ("DVC-006", "Gas Sensor"),
+        ("DVC-007", "Smart Plug"),
+        ("DVC-008", "Thermostat"),
+        ("DVC-009", "Water Flow Sensor"),
+        ("DVC-010", "Camera Module"),
+        ("DVC-011", "Relay Switch"),
+        ("DVC-012", "Vibration Sensor"),
+        ("DVC-013", "GPS Tracker")
+    };
+}
+
+<div class="container mt-4">
+
+    <!-- Back Button -->
+    <div class="d-flex align-items-center mb-4">
+        <button onclick="history.back()" class="btn btn-outline-secondary btn-sm">
+            <i class="bi bi-arrow-left"></i> Back
+        </button>
+        <h3 class="fw-bold mb-0 ms-3">Connected Devices</h3>
+    </div>
+
+    <p class="text-muted">Total Devices: <span class="fw-bold">@devices.Count</span></p>
+
+    <!-- Device Cards -->
+    <div class="row g-4">
+        @foreach (var device in devices)
+        {
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card shadow border-0 rounded-4 h-100 hover-effect">
+                    <div class="card-body text-center d-flex flex-column justify-content-center">
+                        <div class="bg-light rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width:70px; height:70px;">
+                            <i class="bi bi-cpu-fill fs-2 text-primary"></i>
+                        </div>
+                        <h6 class="fw-bold text-dark mb-1">@device.Name</h6>
+                        <small class="text-muted">ID: @device.Id</small>
+                        <span class="badge bg-success blink mt-2">● Online</span>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<!-- CSS for hover and blink -->
+<style>
+    .hover-effect {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+        .hover-effect:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 22px rgba(0,0,0,0.15);
+        }
+
+    .blink {
+        animation: blinker 1.2s linear infinite;
+    }
+
+    @@keyframes blinker {
+        50% {
+            opacity: 0.4;
+        }
+    }
+</style>
