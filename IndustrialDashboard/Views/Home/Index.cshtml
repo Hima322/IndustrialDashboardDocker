@@ -249,33 +249,34 @@
 </script>
 <script>
     document.addEventListener("DOMContentLoaded", () => {
-        const username = localStorage.getItem("user");
-        const photo = localStorage.getItem("photo_" + username);
+        // Get username from localStorage
+        const username = localStorage.getItem("loggedInUser");
 
-        if (username) {
+        // If not logged in and currently on Home page, redirect to Login
+        if (!username && window.location.pathname.toLowerCase().includes("/home")) {
+            window.location.href = "/Account/Login";
+            return;
+        }
+
+        // If username exists, show it on the page
+        if (username && document.getElementById("userName")) {
             document.getElementById("userName").textContent = username;
         }
 
-        if (photo) {
+        // If photo exists, display it
+        if (photo && document.getElementById("userPhoto")) {
             const img = document.getElementById("userPhoto");
             img.src = photo;
             img.style.display = "inline-block";
         }
     });
 
- 
+    // Logout button handler
     function logoutUser() {
-        localStorage.clear();
-
+        localStorage.removeItem("loggedInUser");
+        localStorage.removeItem("userPhoto");
         window.location.href = "/Account/Login";
     }
-
-    document.addEventListener("DOMContentLoaded", () => {
-        const username = localStorage.getItem("user");
-        if (!username && window.location.pathname.toLowerCase().includes("/home")) {
-            window.location.href = "/Account/Login";
-        }
-    });
-
 </script>
+
 
